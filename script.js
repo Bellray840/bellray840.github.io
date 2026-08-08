@@ -23,6 +23,15 @@ const paintings = [
     title: "Forgotten Echoes",
     status: "Sold",
     price: "300 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "ethereal-dawn.jpg",
+    title: "Ethereal Dawn",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
     size: "12 × 18 inches",
     medium: "Acrylic on canvas",
     description: ""
