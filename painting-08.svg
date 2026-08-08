@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+<defs>
+  <radialGradient id="g"><stop offset="0" stop-color="#8ab3c9" stop-opacity=".95"/><stop offset="1" stop-color="#15384b" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="600" height="800" fill="#080808"/>
+<rect x="22" y="22" width="556" height="756" rx="2" fill="#15384b"/>
+<rect x="22" y="22" width="556" height="756" fill="url(#g)"/>
+<path d="M0 640 Q160 570 300 625 T600 590 V800 H0Z" fill="#090b0c" opacity=".8"/>
+<path d="M80 610 L210 510 L360 600 L510 500" fill="none" stroke="#080808" stroke-width="12" opacity=".8"/>
+<rect x="255" y="490" width="100" height="110" fill="#090909"/>
+<rect x="278" y="525" width="22" height="30" fill="#8ab3c9" opacity=".85"/>
+<rect x="310" y="525" width="22" height="30" fill="#8ab3c9" opacity=".55"/>
+<circle cx="465" cy="220" r="34" fill="#8ab3c9" opacity=".8"/>
+<text x="300" y="735" text-anchor="middle" fill="#f4f0d4" font-family="Georgia,serif" font-size="26">PAINTING 4</text>
+</svg>
