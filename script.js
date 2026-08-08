@@ -10,7 +10,7 @@ IMPORTANT:
 
 const paintings = [
   {
-    image: "through-the-silence.jpg",
+    image: "through-the-silence.JPG",
     title: "Through the Silence",
     status: "Available",
     price: "450 USD (Shipping included)",
