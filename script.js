@@ -19,7 +19,7 @@ const paintings = [
     description: ""
   },
   {
-    image: "forgotten-echoes.JPG",
+    image: "forgotten-echoes.jpg",
     title: "Forgotten Echoes",
     status: "Available",
     price: "300 USD (Shipping included)",
