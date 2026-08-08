@@ -28,6 +28,15 @@ const paintings = [
     description: ""
   },
    {
+    image: "luminous-pause.jpg",
+    title: "Luminous Pause",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
     image: "ethereal-dawn.jpg",
     title: "Ethereal Dawn",
     status: "Sold",
