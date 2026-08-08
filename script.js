@@ -21,7 +21,7 @@ const paintings = [
   {
     image: "forgotten-echoes.jpg",
     title: "Forgotten Echoes",
-    status: "Available",
+    status: "Sold",
     price: "300 USD (Shipping included)",
     size: "12 × 18 inches",
     medium: "Acrylic on canvas",
