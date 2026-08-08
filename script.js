@@ -45,7 +45,7 @@ function renderGallery() {
     <article class="art-card">
       <button class="art-image-button" type="button" data-painting="${i}" aria-label="View ${escapeHTML(p.title)}">
         <div class="art-image-wrap">
-          <img src="images/${encodeURIComponent(p.image)}" alt="${escapeHTML(p.title)}" loading="lazy">
+          <img src="${p.image}" alt="${escapeHTML(p.title)}" loading="lazy">
           <span class="view-art">View artwork</span>
         </div>
       </button>
@@ -67,7 +67,7 @@ function openPainting(index) {
   const modal = qs("#painting-modal");
   if (!p || !modal) return;
 
-  qs("#modal-image").src = `images/${encodeURIComponent(p.image)}`;
+  qs("#modal-image").src = p.image;
   qs("#modal-image").alt = p.title;
   qs("#modal-title").textContent = p.title;
   qs("#modal-status").textContent = p.status;
