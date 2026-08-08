@@ -57,3 +57,11 @@ Then use:
 
 Settings → Pages → Deploy from a branch → main → /(root) → Save
 
+
+
+## Important
+Painting images now open in a pop-up directly on the Home page, similar to the Wix behavior. The separate `painting.html` remains only as a fallback and is not used by the Home gallery.
+
+
+### Navigation fix
+The Home page navigation has been given its own stacking layer so Home, About and Contact remain visible and clickable above the hero section.

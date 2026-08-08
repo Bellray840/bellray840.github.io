@@ -24,6 +24,8 @@ a{color:inherit}
 img{max-width:100%}
 
 .site-header{
+  position:relative;
+  z-index:20;
   background:var(--ink);
   text-align:center;
   padding:54px 24px 34px;
@@ -47,6 +49,8 @@ img{max-width:100%}
 }
 
 .main-nav{
+  position:relative;
+  z-index:30;
   background:var(--ink);
   display:flex;
   justify-content:center;
@@ -55,6 +59,10 @@ img{max-width:100%}
   border-bottom:1px solid var(--line);
 }
 .main-nav a{
+  position:relative;
+  z-index:31;
+  display:inline-block;
+  cursor:pointer;
   font-family:var(--sans);
   font-size:12px;
   letter-spacing:.16em;
@@ -76,6 +84,8 @@ img{max-width:100%}
 .mobile-menu{display:none}
 
 .hero{
+  position:relative;
+  z-index:1;
   padding:88px 30px 55px;
   text-align:center;
   background:
@@ -376,11 +386,11 @@ img{max-width:100%}
   .main-nav{display:none}
   .menu-button{display:block;position:absolute;right:18px;top:20px}
   .mobile-menu.open{
-    display:flex;
-    position:absolute;
+    position:fixed;
     right:18px;
     top:72px;
-    z-index:90;
+    z-index:300;
+    display:flex;
     flex-direction:column;
     background:var(--paper);
     color:#111;
@@ -415,4 +425,130 @@ img{max-width:100%}
   .painting-image{max-height:none}
   .contact-grid{margin-top:35px}
   .mailing p{font-size:22px}
+}
+
+
+/* Painting pop-up */
+body.modal-open{overflow:hidden}
+.art-image-button{
+  width:100%;
+  display:block;
+  padding:0;
+  margin:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  text-align:inherit;
+  cursor:pointer;
+}
+.painting-modal{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+  background:rgba(0,0,0,.82);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease,visibility .25s ease;
+}
+.painting-modal.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.modal-box{
+  position:relative;
+  width:min(1080px,100%);
+  max-height:92vh;
+  overflow:auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  background:#090909;
+  border:1px solid rgba(244,240,216,.22);
+  box-shadow:0 25px 80px rgba(0,0,0,.7);
+}
+.modal-image-wrap{
+  background:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:500px;
+}
+.modal-image{
+  display:block;
+  width:100%;
+  max-height:82vh;
+  object-fit:contain;
+}
+.modal-info{
+  padding:55px 45px;
+  align-self:center;
+}
+.modal-info h2{
+  margin:0 0 30px;
+  font-family:"Great Vibes",cursive;
+  font-size:clamp(52px,6vw,78px);
+  font-weight:400;
+  line-height:1;
+}
+.modal-detail{
+  border-top:1px solid var(--line);
+  padding:15px 0;
+  font-family:var(--sans);
+  font-size:13px;
+}
+.modal-label{
+  display:block;
+  margin-bottom:5px;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.modal-description{
+  margin-top:22px;
+  font-size:17px;
+  line-height:1.7;
+}
+.modal-close{
+  position:absolute;
+  right:16px;
+  top:12px;
+  z-index:2;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(244,240,216,.3);
+  border-radius:50%;
+  background:rgba(0,0,0,.65);
+  color:var(--cream);
+  cursor:pointer;
+  font-size:25px;
+  line-height:1;
+}
+.modal-contact{
+  display:inline-block;
+  margin-top:25px;
+  border:1px solid var(--cream);
+  padding:12px 18px;
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+@media(max-width:800px){
+  .painting-modal{padding:15px}
+  .modal-box{
+    grid-template-columns:1fr;
+    max-height:94vh;
+  }
+  .modal-image-wrap{min-height:0}
+  .modal-image{max-height:55vh}
+  .modal-info{padding:32px 28px 38px}
+  .modal-info h2{font-size:55px}
 }

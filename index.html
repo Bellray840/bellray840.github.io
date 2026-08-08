@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact — Ramsha Art Studio</title><link rel="stylesheet" href="style.css"></head><body><header class="site-header">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Ramsha Art Studio — original paintings inspired by nostalgia, memory and the night feeling."><title>Ramsha Art Studio — Original Paintings</title><link rel="stylesheet" href="style.css"></head><body><header class="site-header">
   <button class="menu-button" aria-label="Open menu" aria-expanded="false">☰</button>
   <a class="logo" href="index.html">Ramsha Art Studio</a>
   <p class="tagline">Original paintings · nostalgia · the night feeling</p>
@@ -12,9 +12,25 @@
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
-</nav><main class="page"><h1 class="script-title">Contact</h1><div class="page-copy"><p>For purchases, commissions or any inquiries, feel free to get in touch.</p></div><div class="contact-grid"><a class="contact-card" href="mailto:YOUR_EMAIL"><span class="contact-icon">✉</span><span>Email</span></a><a class="contact-card" href="YOUR_WHATSAPP_LINK" target="_blank"><span class="contact-icon">◉</span><span>WhatsApp</span></a><a class="contact-card" href="YOUR_INSTAGRAM_LINK" target="_blank"><span class="contact-icon">◎</span><span>Instagram</span></a></div><div class="mailing"><p>Join my mailing list for early access to new artwork.</p><a class="button" href="YOUR_MAILING_LIST_LINK" target="_blank">Join the mailing list</a></div></main><footer class="footer"><p>© 2026 Ramsha Art Studio · All rights reserved.</p></footer><div class="bottom-bar" aria-label="Quick contact">
+</nav><section class="hero"><div class="eyebrow">Original artwork</div><h1>A collection of paintings</h1><p>Quiet places, remembered moments and the feeling of being awake when the world goes still.</p></section><main><section id="gallery" class="gallery" aria-label="Original paintings"></section></main><footer class="footer"><p>© 2026 Ramsha Art Studio · All rights reserved.</p></footer><div class="bottom-bar" aria-label="Quick contact">
   <a href="YOUR_WHATSAPP_LINK"><span class="bottom-icon">◉</span>WhatsApp</a>
   <a href="YOUR_INSTAGRAM_LINK" target="_blank"><span class="bottom-icon">◎</span>Instagram</a>
   <a href="mailto:YOUR_EMAIL"><span class="bottom-icon">✉</span>Email</a>
   <a href="YOUR_CHAT_LINK"><span class="bottom-icon">▰</span>Chat</a>
+</div><div id="painting-modal" class="painting-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Artwork details">
+  <div class="modal-box">
+    <button id="modal-close" class="modal-close" type="button" aria-label="Close">×</button>
+    <div class="modal-image-wrap">
+      <img id="modal-image" class="modal-image" src="" alt="">
+    </div>
+    <div class="modal-info">
+      <h2 id="modal-title"></h2>
+      <div class="modal-detail"><span class="modal-label">Status</span><span id="modal-status"></span></div>
+      <div class="modal-detail"><span class="modal-label">Price</span><span id="modal-price"></span></div>
+      <div class="modal-detail"><span class="modal-label">Size</span><span id="modal-size"></span></div>
+      <div class="modal-detail"><span class="modal-label">Medium</span><span id="modal-medium"></span></div>
+      <p id="modal-description" class="modal-description"></p>
+      <a class="modal-contact" href="contact.html">Contact me about this artwork →</a>
+    </div>
+  </div>
 </div><script src="script.js"></script></body></html>
