@@ -2,7 +2,8 @@
 RAMSHA ART STUDIO — SINGLE-PAGE GITHUB VERSION
 
 IMPORTANT:
-1. Put painting photos inside the images folder.
+
+1. Painting photos are kept in the main/root folder.
 2. Change only the paintings list below when you want to add/edit paintings.
 3. Navigation is intentionally handled inside ONE index.html so About and Contact
    can never be accidentally swapped with Home on GitHub.
@@ -10,7 +11,7 @@ IMPORTANT:
 
 const paintings = [
   {
-    image: "through-the-silence.jpg",
+    image: "throughthesilence.jpg",
     title: "Through the Silence",
     status: "Available",
     price: "450 USD (Shipping included)",
@@ -19,12 +20,21 @@ const paintings = [
     description: ""
   },
   {
-    image: "painting-02.jpg",
+    image: "painting2.jpg",
     title: "Your Painting Title",
     status: "Available",
     price: "300 USD (Shipping included)",
     size: "12 × 18 inches",
     medium: "Acrylic on canvas",
+    description: ""
+  },
+  {
+    image: "forgottenechoes.jpg",
+    title: "Forgotten Echoes",
+    status: "Available",
+    price: "300 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Oil on canvas",
     description: ""
   }
 ];
@@ -33,7 +43,11 @@ const qs = (s) => document.querySelector(s);
 
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>"']/g, c => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
   }[c]));
 }
 
@@ -49,6 +63,7 @@ function renderGallery() {
           <span class="view-art">View artwork</span>
         </div>
       </button>
+
       <div class="art-caption">
         <h2>${escapeHTML(p.title)}</h2>
         <p>${escapeHTML(p.size)} · ${escapeHTML(p.medium)}</p>
@@ -58,16 +73,19 @@ function renderGallery() {
   `).join("");
 
   gallery.querySelectorAll(".art-image-button").forEach(button => {
-    button.addEventListener("click", () => openPainting(Number(button.dataset.painting)));
+    button.addEventListener("click", () => {
+      openPainting(Number(button.dataset.painting));
+    });
   });
 }
 
 function openPainting(index) {
   const p = paintings[index];
   const modal = qs("#painting-modal");
+
   if (!p || !modal) return;
 
-  qs("#modal-image").src = encodeURIComponent(p.image)`;
+  qs("#modal-image").src = encodeURIComponent(p.image);
   qs("#modal-image").alt = p.title;
   qs("#modal-title").textContent = p.title;
   qs("#modal-status").textContent = p.status;
@@ -83,7 +101,9 @@ function openPainting(index) {
 
 function closePainting() {
   const modal = qs("#painting-modal");
+
   if (!modal) return;
+
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
@@ -91,45 +111,70 @@ function closePainting() {
 
 function setupModal() {
   const modal = qs("#painting-modal");
+
   if (!modal) return;
-  qs("#modal-close").addEventListener("click", closePainting);
+
+  const closeButton = qs("#modal-close");
+
+  if (closeButton) {
+    closeButton.addEventListener("click", closePainting);
+  }
+
   modal.addEventListener("click", (event) => {
-    if (event.target === modal) closePainting();
+    if (event.target === modal) {
+      closePainting();
+    }
   });
+
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closePainting();
+    if (event.key === "Escape") {
+      closePainting();
+    }
   });
 }
 
 function showPage(page) {
   const valid = ["home", "about", "contact"];
-  if (!valid.includes(page)) page = "home";
+
+  if (!valid.includes(page)) {
+    page = "home";
+  }
 
   document.querySelectorAll(".site-page").forEach(section => {
     section.hidden = section.id !== `page-${page}`;
   });
 
   document.querySelectorAll("[data-page]").forEach(link => {
-    link.setAttribute("aria-current", link.dataset.page === page ? "page" : "false");
+    link.setAttribute(
+      "aria-current",
+      link.dataset.page === page ? "page" : "false"
+    );
   });
 
-  document.title = page === "home"
-    ? "Ramsha Art Studio — Original Paintings"
-    : `${page.charAt(0).toUpperCase() + page.slice(1)} — Ramsha Art Studio`;
+  document.title =
+    page === "home"
+      ? "Ramsha Art Studio — Original Paintings"
+      : `${page.charAt(0).toUpperCase() + page.slice(1)} — Ramsha Art Studio`;
 
   window.scrollTo({ top: 0, behavior: "auto" });
+
   closeMobileMenu();
 }
 
 function routeFromHash() {
-  const page = (window.location.hash || "#home").slice(1).toLowerCase();
+  const page = (window.location.hash || "#home")
+    .slice(1)
+    .toLowerCase();
+
   showPage(page);
 }
 
 function closeMobileMenu() {
   const button = qs(".menu-button");
   const menu = qs(".mobile-menu");
+
   if (!button || !menu) return;
+
   menu.classList.remove("open");
   button.setAttribute("aria-expanded", "false");
 }
@@ -145,6 +190,7 @@ function setupNavigation() {
 
   const button = qs(".menu-button");
   const menu = qs(".mobile-menu");
+
   if (button && menu) {
     button.addEventListener("click", () => {
       const open = menu.classList.toggle("open");
@@ -155,6 +201,10 @@ function setupNavigation() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderGallery();
+  setupModal();
+  setupNavigation();
+  routeFromHash();
+});
   setupModal();
   setupNavigation();
   routeFromHash();
